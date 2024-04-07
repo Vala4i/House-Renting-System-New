@@ -1,0 +1,20 @@
+pipeline {
+agent any
+stages {
+stage('Restore') {
+steps {
+bat 'dotnet restore HouseRentingSystem.sln --configuration Release'
+}
+}
+stage ('Build') {
+steps {
+bat 'dotnet build HouseRentintSystem.sln'
+}
+}
+stage ('Test') {
+steps {
+bat 'dotnet test HouseRentingSystem.Tests/HouseRengingSystem.Test.csproj'
+}
+}
+}
+}
